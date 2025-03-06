@@ -3,16 +3,18 @@ using namespace std;
 
 int main() {
 	int input;
-	cout << "ÇÏ³ªÀÇ Á¤¼ö(2<= n <=30)¸¦ ÀÔ·Â ÇÏ¼¼¿ä: " << endl; 
-	cin >> input; //ÇÏ³ªÀÇ Á¤¼ö¸¦ ÀÔ·Â¹ŞÀ½
+	cout << "í•˜ë‚˜ì˜ ì •ìˆ˜(2<= n <=30)ë¥¼ ì…ë ¥ í•˜ì„¸ìš”: " << endl;
+	cin >> input; //í•˜ë‚˜ì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ìŒ
 	int a = 0, b = 1, tmp;
-
-	for (int i = 0; i < input; i++) {
-		tmp = b;
-		b = a + b; 
-		a = tmp; 
+	if (2 <= input && input <= 30) {
+		for (int i = 0; i < input; i++) {
+			tmp = b;
+			b = a + b;
+			a = tmp;
+		}
+		cout << b << endl;
 	}
-	cout << b << endl;
+	else cout << "ì˜ ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤" << endl;
 
 	return 0;
 }
