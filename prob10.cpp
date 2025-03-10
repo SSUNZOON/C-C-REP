@@ -1,34 +1,39 @@
 #include <iostream>
-#include <cmath>
-using namespace std; 
+using namespace std;
 const int MAX = 100; 
 
-
 int main() {
+	int n;
 	int data[MAX];
-	int n; 
-	cout << "입력할 정수의 갯수를 입력하시오: ";
-	cin >> n; 
-	
-	for (int i = 0; i < n; i++) {
-		cin >> data[i]; 
-	}
-	
-	int k; 
-	cout << "비교할 k값을 입력하시오: ";
-	cin >> k; 
+	cout << "입력될 정수의 갯수를 입력하세요:";
+	cin >> n;
 
-	int MIN = abs(data[0] - k); // 1 9 8 2 5 12 // 7 -> 6
-	int nums = data[0];  
+	cin >> data[0]; 
+	int leader = data[0]; // leader 초기화
+	int count = 1; 
+	
+	cout << "현재 리더:" << leader << endl;
+	
 	for (int i = 1; i < n; i++) {
-		if (MIN > abs(data[i] - k)) {
-			MIN = abs(data[i] - k);
-			nums = data[i];
+		int t; //배열에 바로 넣지 않고 리더와 조건 비교 한다 
+		cin >> t;
+
+		if (leader < t) //리더보다 입력값이 더 큰 경우 
+		{
+			leader = t; //리더 교체
+			data[i] = t; 
+			count++; //리더 갯수 증가 	
 		}
+		else if (leader == t) {
+			data[i] = t;
+			count++; 
+		}
+		cout << "리더의 갯수: " << count << " 현재 리더: " << leader << endl;
 	}
-	cout << nums << endl; 
+	cout << count << ":";
+	for (int i = 0; i < count; i++)
+		cout << data[i] << " ";
+
+	return 0; 
 
 }
-
-
-
